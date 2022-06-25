@@ -1,0 +1,375 @@
+---
+title: "Empirical Project 2"
+author: "Santiago Giordano"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+    - \usepackage{setspace}\doublespacing
+output:
+  pdf_document: default
+  github_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA)
+```
+
+
+
+
+```{r pkgs, echo=FALSE}
+# load pkgs
+library(pacman)
+p_load(haven, broom, dplyr, sandwich, lmtest, sandwich, ggplot2, magrittr)
+p_load(magrittr)
+```
+
+```{r data, echo=FALSE}
+# Load data
+river_data <- read_dta("huairiver.dta")
+```
+
+## Question 1:
+
+|   A simple comparison of Northern cities with southern cities would not be useful to examine causal effects because it does not allow us to single out the effect of the Huai River Policy. Cities in the North of China, such as Beijing, can vary drastically from cities in the South, such as Shenzhen, whether it is economically, geographically, or demographically. Consequently, changes measured in these regions after the policy implementation cannot be attributed to the policy because the numerous factors that differentiate the regions could also be behind the changes. The regression discontinuity design implemented by Ebenstein et al. addresses this problem by analyzing the changes in the regions right on the border of the river (used as a demarcation line by the policy). The assumption is that towns on both sides of the river will be virtually the same, yet were subject to different access to heating do to an arbitrary choice. Hence, the changes measured post-policy should be attributable to the policy due to the regions' similarity.
+
+## Question 2:
+
+| The outcome variable *pm10* is the average level of PM10 measured in the air. PM10 is a type of particulate matter that adversely affects human health. The assignment variable is *dist_huai*, which denotes the distance in degrees north or south of the Huai river.
+
+## Question 3:
+
+|   When plotting large datasets with scatter plots, we may find that points can overlap and thus obfuscate the distribution of the data or any trends present therein. Binned scatter plots offer a way to address this issue by grouping data into bins. Specifically, for binned scatter plots we divide the conditional variable into equally sized bins. For each of these bins, the mean of the conditional variable is calculated and in the graph we plot the mean of the dependent variable in each of these bins. In other words, it computes the averages of the different quartiles of the data. As a result, a bin scatter allows us to get the E[Y|X] since we can use it to look for the functional form assumption.
+
+
+## Question 4:
+
+#### Part A:
+
+```{r clean data for bin scatter}
+# Create bins:
+river_data %<>% 
+  mutate(huai_bin = cut(dist_huai, 
+                        breaks = quantile(dist_huai, 
+                                          probs = seq(0, 1, by = 0.05), na.rm = TRUE)))
+# Check bin variable is in factors
+is.factor(river_data$huai_bin)
+# Tabulate number of obseravations in each bin
+table(river_data$huai_bin)
+```
+
+```{r bin scatter with slides code, include=FALSE}
+# Bin scatter using code from slides
+river_data %>%
+  group_by(huai_bin) %>%
+  summarise(dist_huai = mean(dist_huai), pm10 = mean(pm10)) %>% 
+  ggplot(aes(x = dist_huai, y = pm10)) + 
+    geom_point(colour = "firebrick", size = 2, alpha = 1) + 
+    geom_smooth(method = "lm", se = FALSE)
+```
+
+```{r bin scatter 4a, warning=FALSE, message=FALSE}
+ggplot() +
+  # plot points for means of bins
+  stat_summary_bin(data = river_data, aes(x = dist_huai, y = pm10), 
+                   fun.y = 'mean', bins = 20, color = "steelblue2", geom = 'point') +
+  # Line for discontinuity
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  # Fitted line for south of Huai
+  geom_smooth(data = filter(river_data, north_huai == 0), 
+              aes(x = dist_huai, y = pm10), method = "lm", 
+              formula = y ~ poly(x, 2)) +
+  # Fitted line for north of Huai
+  geom_smooth(data = filter(river_data, north_huai == 1), 
+              aes(x = dist_huai, y = pm10), method = "lm", 
+              formula = y ~ poly(x, 2)) +
+  # Misc settings
+  labs(title = "   PM10 as a Function of Degrees North from 
+                        the Huai River", 
+       y = "Average PM10 Level (ug/m3)", 
+       x = "Distance North from the Huai River (Degrees)") +
+  theme_minimal()
+
+```
+
+#### Part B:
+
+-   Temperature test:
+
+```{r bin scatter 4bi, warning=FALSE, message=FALSE}
+ggplot() +
+  # plot points for means of bins
+  stat_summary_bin(data = river_data, aes(x = dist_huai, y = temp), 
+                   fun.y = 'mean', bins = 20, color = "tomato3", geom = 'point') +
+  # Line for discontinuity
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  # Fitted line for south of Huai
+  geom_smooth(data = filter(river_data, north_huai == 0), 
+              aes(x = dist_huai, y = temp), method = "lm", 
+              formula = y ~ poly(x, 2)) +
+  # Fitted line for north of Huai
+  geom_smooth(data = filter(river_data, north_huai == 1), 
+              aes(x = dist_huai, y = temp), method = "lm", 
+              formula = y ~ poly(x, 2)) +
+  # Misc settings
+  labs(title = "Temperature as a Function of Degrees North from 
+                          the Huai River", 
+       y = "Avg Temperature (Deg F)", 
+       x = "Distance North from the Huai River (Degrees)") +
+  theme_minimal() #+ theme(text = element_text("Roboto Condensed") )
+```
+
+-   Precipitation test:
+
+```{r bin scatter 4bii, warning=FALSE, message=FALSE}
+ggplot() +
+  # plot points for means of bins
+  stat_summary_bin(data = river_data, aes(x = dist_huai, y = prcp), 
+                   fun.y = 'mean', bins = 20, color = "tomato3", geom = 'point') +
+  # Line for discontinuity
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  # Fitted line for south of Huai
+  geom_smooth(data = filter(river_data, north_huai == 0), 
+              aes(x = dist_huai, y = prcp), method = "lm", 
+              formula = y ~ poly(x, 3)) +
+  # Fitted line for north of Huai
+  geom_smooth(data = filter(river_data, north_huai == 1), 
+              aes(x = dist_huai, y = prcp), method = "lm", 
+              formula = y ~ poly(x, 3)) +
+  # Misc settings
+  labs(title = "Precipitation as a Function of Degrees North from 
+                            the Huai River", 
+       y = "Avg Precipiation (mm)", 
+       x = "Distance North from the Huai River (Degrees)") +
+  theme_minimal()
+
+```
+
+-   Wind speed test:
+
+```{r bin scatter 4biii, warning=FALSE, message=FALSE}
+ggplot() +
+  # plot points for means of bins
+  stat_summary_bin(data = river_data, aes(x = dist_huai, y = wspd), 
+                   fun.y = 'mean', bins = 20, color = "tomato3", geom = 'point') +
+  # Line for discontinuity
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  # Fitted line for south of Huai
+  geom_smooth(data = filter(river_data, north_huai == 0), 
+              aes(x = dist_huai, y = wspd), method = "lm", 
+              formula = y ~ poly(x, 4)) +
+  # Fitted line for north of Huai
+  geom_smooth(data = filter(river_data, north_huai == 1), 
+              aes(x = dist_huai, y = wspd), method = "lm", 
+              formula = y ~ poly(x, 4)) +
+  # Misc settings
+  labs(title = "Wind speed as a Function of Degrees North from 
+                          the Huai River", 
+       y = "Avg Wind Speed (m/s)", 
+       x = "Distance North from the Huai River (Degrees)") +
+  theme_minimal()
+```
+
+## Question 5:
+
+-   Bandwidth of 5 degrees chosen - i.e. $c - 5 \le X \le c + 5$
+
+```{r regs to quant discontinuities}
+# Regress distance from pm10 on distance from Huai
+reg_pm10 <- lm(pm10 ~ north_huai*dist_huai, filter(river_data, dist_huai >= -5 & dist_huai <= 5))
+# 95% Confidence intervals
+ci_reg_pm10 <- confint.lm(reg_pm10)
+
+# Regress distance from temperature on distance from Huai
+reg_temp <- lm(temp ~ north_huai*dist_huai, filter(river_data, dist_huai >= -5 & dist_huai <= 5))
+# 95% Confidence intervals
+ci_reg_temp <- confint.lm(reg_temp)
+
+# Regress distance from precipitation on distance from Huai
+reg_prcp <- lm(prcp ~ north_huai*dist_huai, filter(river_data, dist_huai >= -5 & dist_huai <= 5))
+# 95% Confidence intervals
+ci_reg_prcp <- confint.lm(reg_prcp)
+
+# Regress distance from wind speed on distance from Huai
+reg_wspd <- lm(wspd ~ north_huai*dist_huai, filter(river_data, dist_huai >= -5 & dist_huai <= 5))
+# 95% Confidence intervals
+ci_reg_wspd <- confint.lm(reg_wspd)
+
+```
+
+```{r stargzer 4, echo=FALSE,warning =FALSE, message=FALSE}
+stargazer::stargazer(reg_pm10, reg_temp, reg_prcp, reg_wspd,
+                  #se = list(age_bal_se, edu_bal_se, gender_bal_se, 
+                            #english_bal_se, white_bal_se),
+                  dep.var.labels = c("PM10", "Temperature", 
+                                     "Precipitation", "Wind Speed"),
+                  covariate.labels = c("Treatment", "Running Variable", "Interaction"),
+                 # keep = c("Constant"),
+                  omit.stat = c("rsq", "adj.rsq", "ser", "f"),
+                  type = 'text', title = "Balance Tests")
+```
+
+```{r print CIs}
+ci_reg_pm10
+ci_reg_temp
+ci_reg_prcp
+ci_reg_wspd
+```
+
+
+## Question 6:
+
+|   In a regression discontinuity design, the identification assumption is that the only reason for discrete jumps in the dependent variable around the cutoff are changes in assignment to the cutoff. In other words, observations on either side of the cutoff would have similar outcomes absent of treatment. The identification assumption is violated when individuals have precise control over which side of the cutoff they will be on (i.e., they have control over the assignment variable).
+
+|   When graphing bin scatter plots of temperature, precipitation and wind speed as a function of degrees North of the cutoff, we find that there is a jump at the discontinuity but the trends remain constant for the most part. In the case of temperature the jump at the cutoff is small and the (mostly) linear trend is constant - I say mostly because South of a cutoff we see a quadratic trend but this is driven primarily by the bin for the observations closest to the cutoff, so we can assume some noise here. The jump for precipitation is also rather small and the cubic trend in the data is constant. The case of wind speed is more challenging to evaluate graphically as the data looks more spurious than in the earlier cases; south of the cutoff we see a quadratic trend in the data and North of the cutoff we see what could be a cubic trend but with very slight variation. Moreover, the jump, or rather drop, at the discontinuity for wind speed is more pronounced. The tests done with regressions, however, do not find any significant effects associated with treatment on temperature, precipitation and wind speed. These tests show that absent of treatment, similar trends would be followed; therefore the tests indicate that the identification assumption was not violated. 
+
+
+## Question 7: 
+
+|   Since the Huai River was selected arbitrarily as a measure to split China into a North and South section as far as the policy was concerned, individuals had not control over where the cutoff was set. Additionally,
+my understanding is that individuals in China don't have necessarily the same freedom of movement across cities as seen in other countries (Hukou System?). If that were the case, then the limits on movement should ensure that the distribution of observations in distance from the cutoff is as good as random assignment. Lastly, these two cases described above would only be pertinent when evaluating health outcomes, but when analyzing manipulation in the context of the effect of the cutoff on PM10, then there cannot be manipulation since observations are the locations of cities (unalterable, at least reasonably within the short and medium term).
+|   Since individuals have no control over where the policy drew the line for the cutoff nor do they have significant control over where they may live, then we should not need to worry about manipulation in this context either. Nevertheless, I ran a manipylation test just to examine the results. 
+
+```{r manipulation test, warning=FALSE, message=FALSE}
+ggplot(river_data) + 
+  geom_histogram(aes(x = dist_huai)) +
+  labs(title = "Distribution of Observations' Degrees from Cutoff", 
+       x = " Degrees from cutoff",
+       y = "Count") +
+  theme_minimal()
+
+```
+
+-   We do see a dip in the distribution around the cutoff, but it is not necessarily indicative of an issue. This is because the observations are locations of cities, which cannot be altered (i.e., cannot be "manipulated"). 
+
+
+## Question 8: 
+a) A discontinuity at the cutoff boundary, is indicative of a potential effect. However, if we find that discontinuities are present in other parts of the data, then the conclusions of the main cutoff are undermined. A placebo test can be used to examine these possibilities; specifically in our case, the placebo test examines whether discontinuities are found in other regions China. The results show that no other region other than the actual Huai river has significant discontinuous changes in PM10 or life expectancy. 
+
+
+b) Replication of placebo test:
+```{r add placebo variables}
+# Create new variable, `placebo_dist_huai`, that where observations are shifted 1 degree north
+river_data %<>% mutate(dist_huai_1 = dist_huai + 1, 
+                       placebo_indic_1 = ifelse(dist_huai_1 >= 0, 1, 0))
+river_data %<>% mutate(dist_huai_2 = dist_huai + 2, 
+                       placebo_indic_2 = ifelse(dist_huai_2 >= 0, 1, 0))
+river_data %<>% mutate(dist_huai_3 = dist_huai + 3, 
+                       placebo_indic_3 = ifelse(dist_huai_3 >= 0, 1, 0))
+
+river_data %<>% mutate(dist_huai_4 = dist_huai + 4, 
+                       placebo_indic_4 = ifelse(dist_huai_4 >= 0, 1, 0))
+
+river_data %<>% mutate(dist_huai_5 = dist_huai + 5, 
+                       placebo_indic_5 = ifelse(dist_huai_5 >= 0, 1, 0))
+
+river_data %<>% mutate(dist_huai_neg1 = dist_huai - 1, 
+                       placebo_indic_neg1 = ifelse(dist_huai_neg1 >= 0, 1, 0))
+
+river_data %<>% mutate(dist_huai_neg2 = dist_huai - 2, 
+                       placebo_indic_neg2 = ifelse(dist_huai_neg2 >= 0, 1, 0))
+
+river_data %<>% mutate(dist_huai_neg3 = dist_huai - 3, 
+                       placebo_indic_neg3 = ifelse(dist_huai_neg3 >= 0, 1, 0))
+
+river_data %<>% mutate(dist_huai_neg4 = dist_huai - 4, 
+                       placebo_indic_neg4 = ifelse(dist_huai_neg4 >= 0, 1, 0))
+
+river_data %<>% mutate(dist_huai_neg5 = dist_huai - 5, 
+                       placebo_indic_neg5 = ifelse(dist_huai_neg5 >= 0, 1, 0))
+
+```
+
+
+```{r regs for placebos with indics}
+
+# Run reg of PM10 on north_huai and new placebo distance variable (placebo_dist_huai)
+placebo_reg1 <- lm(pm10 ~ dist_huai_1*placebo_indic_1, 
+                  filter(river_data, dist_huai_1 >= -5 & dist_huai_1 <=5))
+placebo_reg2 <- lm(pm10 ~ dist_huai_2*placebo_indic_2, 
+                  filter(river_data, dist_huai_2 >= -5 & dist_huai_2 <=5))
+placebo_reg3 <- lm(pm10 ~ dist_huai_3*placebo_indic_3, 
+                  filter(river_data, dist_huai_3 >= -5 & dist_huai_3 <=5))
+placebo_reg4 <- lm(pm10 ~ dist_huai_4*placebo_indic_4,
+                  filter(river_data, dist_huai_4 >= -5 & dist_huai_4 <=5))
+placebo_reg5 <- lm(pm10 ~ dist_huai_5*placebo_indic_5, 
+                  filter(river_data, dist_huai_5 >= -5 & dist_huai_5 <=5))
+
+placebo_reg_neg1 <- lm(pm10 ~ dist_huai_neg1*placebo_indic_neg1, 
+                  filter(river_data, dist_huai_neg1 >= -5 & dist_huai_neg1 <=5))
+placebo_reg_neg2 <- lm(pm10 ~ dist_huai_neg2*placebo_indic_neg2, 
+                  filter(river_data, dist_huai_neg2 >= -5 & dist_huai_neg2 <=5))
+placebo_reg_neg3 <- lm(pm10 ~ dist_huai_neg3*placebo_indic_neg3, 
+                  filter(river_data, dist_huai_neg3 >= -5 & dist_huai_neg3 <=5))
+placebo_reg_neg4 <- lm(pm10 ~ dist_huai_neg4*placebo_indic_neg4, 
+                  filter(river_data, dist_huai_neg4 >= -5 & dist_huai_neg4 <=5))
+placebo_reg_neg5 <- lm(pm10 ~ dist_huai_neg5*placebo_indic_neg5, 
+                  filter(river_data, dist_huai_neg5 >= -5 & dist_huai_neg5 <=5))
+
+
+```
+
+
+```{r pull conf ints and estims, warning=FALSE, message=FALSE}
+# Find confidence intervals
+ci_0 <- confint.lm(reg_pm10)[2, 1:2]
+ci_1 <- confint.lm(placebo_reg1)[3, 1:2]
+ci_2 <- confint.lm(placebo_reg2)[3, 1:2]
+ci_3 <- confint.lm(placebo_reg3)[3, 1:2]
+ci_4 <- confint.lm(placebo_reg4)[3, 1:2]
+ci_5 <- confint.lm(placebo_reg5)[3, 1:2]
+ci_neg1 <- confint.lm(placebo_reg_neg1)[3, 1:2]
+ci_neg2 <- confint.lm(placebo_reg_neg2)[3, 1:2]
+ci_neg3 <- confint.lm(placebo_reg_neg3)[3, 1:2]
+ci_neg4 <- confint.lm(placebo_reg_neg4)[3, 1:2]
+ci_neg5 <- confint.lm(placebo_reg_neg5)[3, 1:2]
+
+# Bind confidence intervals
+conf_ints <- bind_rows(ci_neg5, ci_neg4, ci_neg3, 
+                       ci_neg2, ci_neg1, ci_0, ci_1,
+                       ci_2, ci_3, ci_4, ci_5)
+
+# Tidy-s
+estim_1 <- tidy(placebo_reg1)[3, 2]
+estim_2 <- tidy(placebo_reg2)[3, 2]
+estim_3 <- tidy(placebo_reg3)[3, 2]
+estim_4 <- tidy(placebo_reg4)[3, 2]
+estim_5 <- tidy(placebo_reg5)[3, 2]
+estim_0 <- tidy(reg_pm10)[2, 2] #Index 2nd row, not 3rd, bc reg has variables in != order
+estim_neg1 <- tidy(placebo_reg_neg1)[3, 2]
+estim_neg2 <- tidy(placebo_reg_neg2)[3, 2]
+estim_neg3 <- tidy(placebo_reg_neg3)[3, 2]
+estim_neg4 <- tidy(placebo_reg_neg4)[3, 2]
+estim_neg5 <- tidy(placebo_reg_neg5)[3, 2]
+
+# Bind estimates
+estimates <- bind_rows(estim_neg5, estim_neg4, estim_neg3, 
+                       estim_neg2, estim_neg1, estim_0, estim_1, 
+                       estim_2, estim_3, estim_4, estim_5)
+```
+```{r create df with CIs and estims and row names}
+# Create vector for row names
+degs <- c("-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5")
+
+# Create dataframes by binding row names, estimates vector and confidence interval vectors
+placebo_estimates <- bind_cols(degs, estimates, conf_ints)
+# Change column names
+colnames(placebo_estimates) <- c("degs_shifted", "estimates", "lower", "upper")
+
+```
+
+```{r plot placebo disconts}
+# Graph
+ggplot(placebo_estimates) +
+  geom_point(aes(x = degs_shifted, y = estimates), color = "tomato3", shape = 21) +
+  geom_errorbar(aes(ymin = lower, ymax = upper, y = estimates, x = degs_shifted,
+                    color = "tomato3")) +
+  geom_hline(yintercept = 0) + 
+  labs(title = "Placebo Tests for Discontinuities",
+       x = "Degrees Shifted", y = "PM10 Estimate (ug/m^3)") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+
+
