@@ -238,9 +238,6 @@ China as a result of the Huai River policy.
 in pollution levels of PM10 at one degree latitude intervals north and
 south. Th essence of the test is to
 
-    New names:
-    • `` -> `...1`
-
 ![](README_files/figure-gfm/plot-placebo-disconts-1.png)<!-- -->
 
   The only significant coefficient estimate of a discontinuity is that

@@ -353,7 +353,7 @@ estimates <- bind_rows(estim_neg5, estim_neg4, estim_neg3,
                        estim_2, estim_3, estim_4, estim_5)
 ```
 
-```{r create df with CIs and estims and row names, message=TRUE, warning=TRUE}
+```{r create df with CIs and estims and row names, message=FALSE, warning=FALSE}
 # Create vector for row names
 degs <- c("-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5")
 
