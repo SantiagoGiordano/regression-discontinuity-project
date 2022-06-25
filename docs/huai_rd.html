@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.238">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>The Effect of the Huai River Policy on Pollution</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="huai_rd_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="huai_rd_files/libs/quarto-html/quarto.js"></script>
+  <script src="huai_rd_files/libs/quarto-html/popper.min.js"></script>
+  <script src="huai_rd_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="huai_rd_files/libs/quarto-html/anchor.min.js"></script>
+  <link href="huai_rd_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="huai_rd_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="huai_rd_files/libs/bootstrap/bootstrap.min.js"></script>
+  <link href="huai_rd_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="huai_rd_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body class="fullcontent">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  
+</div>
+
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+<div class="quarto-title"><h1 class="title display-7">The Effect of the Huai River Policy on Pollution</h1></div></header>
+<p>&nbsp;&nbsp;As part of a project for an Econometrics course in experimental design, I replicate the regression discontinuity approach employed by Ebenstein et al.&nbsp;in <em>New evidence on the impact of sustained exposure to air pollution on life expectancy from China’s Huai River Policy</em>. Ebenstein and his coauthors leverage China’s arbitrary Huai River policy which designated areas north of the Huai River as recipients of free or subsidized coal for indoor heating. The authors focus on estimating the effects of the policy on pollution and life expectancy; I, however, focus solely on the causal estimation of the effects on pollution as the demographic data needed for the analysis of changes in life expectancy is not public.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<section id="camparing-the-effects-of-the-policy-south-and-north-of-the-huai-river" class="level2">
+<h2 class="anchored" data-anchor-id="camparing-the-effects-of-the-policy-south-and-north-of-the-huai-river">Camparing the effects of the policy south and north of the Huai River:</h2>
+<p>&nbsp;&nbsp;A simple comparison of northern cities with southern cities would not be useful to examine causal effects because it does not allow us to single out the effect of the Huai River Policy. Cities in the north of China, say Beijing, can vary drastically from cities in the south, say Shenzhen, whether it is economically, geographically, or demographically. Consequently, changes measured in these regions after the policy implementation cannot be attributed to the policy because the numerous factors that differentiate the regions could also be behind the changes. The regression discontinuity design implemented by Ebenstein et al.&nbsp;addresses this problem by analyzing the changes in the regions right on the border of the river (used as a demarcation line by the policy). The assumption is that towns on both sides of the river will be virtually the same, yet were subject to different costs to access heating do to an arbitrary demarcation choice. Hence, the changes measured post-policy should be attributable to the policy due to the regions’ similarities.</p>
+</section>
+<section id="overall-approach" class="level2">
+<h2 class="anchored" data-anchor-id="overall-approach">Overall approach:</h2>
+<p>&nbsp;&nbsp;Globally, the approach is to narrow down the observations to a group of towns/cities near the border of the Huai River and to estimate the change in pollution levels associated with being north of our cutoff (i.e., the river). For the measure of pollution I use the variable <em>pm10</em> which represents the average level of PM10, a type of particulate matter that adversely affects human health, found in the air. A priori, PM10 levels are expected to increase with higher use of heating. The assignment variable is <em>dist_huai</em>, which denotes the distance in degrees north or south of the Huai river. The other independent variable, <em>north_huai</em>, is a dummy variable which equals one if a town is north of the river and zero otherwise.</p>
+</section>
+<section id="plotting-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-the-data">Plotting the data:</h2>
+<p>&nbsp;&nbsp;A discussed earlier, changes in the levels of pollution in regions far away from the cutoff for the policy are not necessarily relevant since it is hard to isolate the effects of the policy. Instead, in a regression discontinuity design, the interest is in the changes observed at and near the cutoff. Specifically, what we intend to examine with a graph is if we observe a discontinuity at the cutoff - in other words, do we see a sudden jump in pollution levels just north of the river?</p>
+<p>&nbsp;&nbsp;We’ll use a binned scatter plot, where each bin represents the average of pollution levels for towns at a certain degree from the cutoff. A binned scatter plot is necessary here because it allows us to avoid any overlap of observations that may obfuscate trends in the data, and the bins facilitate dividing the data into degrees from the cutoff.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot points for means of bins</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary_bin</span>(<span class="at">data =</span> river_data, <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> pm10), </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fun.y =</span> <span class="st">'mean'</span>, <span class="at">bins =</span> <span class="dv">20</span>, <span class="at">color =</span> <span class="st">"steelblue2"</span>, <span class="at">geom =</span> <span class="st">'point'</span>) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Line for discontinuity</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for south of Huai</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> pm10), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for north of Huai</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">1</span>), </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> pm10), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Misc settings</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"PM10 as a Function of Degrees north from the Huai River"</span>, </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average PM10 Level (ug/m3)"</span>, </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Degrees north of the Huai River Boundary"</span>) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">14</span>, <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="huai_rd_files/figure-html/bin-scatter-4a-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="balance-tests" class="level2">
+<h2 class="anchored" data-anchor-id="balance-tests">Balance tests:</h2>
+<p>&nbsp;&nbsp;In essence, with balance tests we examine if characteristics across groups (in this case climatic characteristics across regions) follow similar trends (i.e., are they “balanced”). The goal is to gauge if the treatment, in our case the being north of the Huai River, affects these characteristics; if no significant changes seem to be present, then these tests support any causal relationships found between treatment and outcome.</p>
+<p>&nbsp;&nbsp;The carry out these tests, we can generate binned scatter plots of each characteristic available in the data - temperature, precipitation, and wind speed - as a function of location with respect to the Huai River boundary. Running a regression of treatment on these characteristics would give more precise results - statistically significant coefficients indicate a characteristic is not balanced. But since here we are dealing with climatic characteristics, rather than the usual demographic characteristics in random samples, ensuring that the general trend is found across the data suffices.</p>
+<ul>
+<li>Temperature test:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot points for means of bins</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary_bin</span>(<span class="at">data =</span> river_data, <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> temp), </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fun.y =</span> <span class="st">'mean'</span>, <span class="at">bins =</span> <span class="dv">20</span>, <span class="at">color =</span> <span class="st">"tomato3"</span>, <span class="at">geom =</span> <span class="st">'point'</span>) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Line for discontinuity</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for south of Huai</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> temp), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for north of Huai</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">1</span>), </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> temp), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Misc settings</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Temperature as a Function of Degrees north from the Huai River"</span>, </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Avg Temperature (Deg F)"</span>, </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Degrees north of the Huai River Boundary"</span>) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">14</span>, <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="co">#+ theme(text = element_text("Roboto Condensed") )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="huai_rd_files/figure-html/bin-scatter-4bi-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Precipitation test:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot points for means of bins</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary_bin</span>(<span class="at">data =</span> river_data, <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> prcp), </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fun.y =</span> <span class="st">'mean'</span>, <span class="at">bins =</span> <span class="dv">20</span>, <span class="at">color =</span> <span class="st">"tomato3"</span>, <span class="at">geom =</span> <span class="st">'point'</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Line for discontinuity</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for south of Huai</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> prcp), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for north of Huai</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">1</span>), </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> prcp), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Misc settings</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Precipitation as a Function of Degrees north from the Huai River"</span>, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Avg Precipiation (mm)"</span>, </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Degrees north of the Huai River Boundary"</span>) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">14</span>, <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="huai_rd_files/figure-html/bin-scatter-4bii-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Wind speed test:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot points for means of bins</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary_bin</span>(<span class="at">data =</span> river_data, <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> wspd), </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fun.y =</span> <span class="st">'mean'</span>, <span class="at">bins =</span> <span class="dv">20</span>, <span class="at">color =</span> <span class="st">"tomato3"</span>, <span class="at">geom =</span> <span class="st">'point'</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Line for discontinuity</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for south of Huai</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> wspd), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitted line for north of Huai</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(river_data, north_huai <span class="sc">==</span> <span class="dv">1</span>), </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> dist_huai, <span class="at">y =</span> wspd), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Misc settings</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Wind speed as a Function of Degrees north from the Huai River"</span>, </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Avg Wind Speed (m/s)"</span>, </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Degrees north of the Huai River Boundary"</span>) <span class="sc">+</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">14</span>, <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="huai_rd_files/figure-html/bin-scatter-4biii-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>&nbsp;&nbsp;In the case of temperature and precipitation, we find there are very slight differences when crossing the cutoff, but most importantly we see the same trend is present north and south of the river. The case of wind speed is trickier, as we see a slight discontinuity at the river as well as potentially different trends. An significant note in this case, however, is that the change in trends that seems to be present at the cutoff looks to be primarily driven by the wind speed average of towns 1 degree south of the cutoff, which could be an outlier.</p>
+</section>
+<section id="setting-a-bandwidth" class="level2">
+<h2 class="anchored" data-anchor-id="setting-a-bandwidth">Setting a bandwidth:</h2>
+<p>&nbsp;&nbsp;To analyse the effects of the Huai River policy, to narrow down the group of observations used to towns near the cutoff as we need towns that are subject to similar conditions. If we satisfy this condition, then we strengthen the assumption that the Huai River policy is the main driver of any changes in pollution levels. We will narrow down the group of towns used by setting a five-degree bandwidth - in practice, this translates to only examining changes in towns that are 5 degrees or less away from the Huai river (i.e., our cutoff).</p>
+<ul>
+<li>Bandwidth of 5 degrees: <span class="math inline">\(c - 5 \le X \le c + 5\)</span></li>
+</ul>
+</section>
+<section id="estimating-the-discontinuity" class="level2">
+<h2 class="anchored" data-anchor-id="estimating-the-discontinuity">Estimating the discontinuity:</h2>
+<p>&nbsp;&nbsp;The specification used will be the following:</p>
+<p><span class="math inline">\(pm10 = \alpha + \beta_{1} north + \beta_{2} distance + \beta_{3} north \cdot distance + \epsilon_i\)</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where we regress PM10 levels on the dummy for whether a town is north of the river, <em>north_huai</em>, on the degrees from the river, <em>dist_huai</em>, and on their interaction.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regress distance from pm10 on distance from Huai</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reg_pm10 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> north_huai<span class="sc">*</span>dist_huai, <span class="fu">filter</span>(river_data, dist_huai <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai <span class="sc">&lt;=</span> <span class="dv">5</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% Confidence intervals</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ci_reg_pm10 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(reg_pm10)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Regress distance from temperature on distance from Huai</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>reg_temp <span class="ot">&lt;-</span> <span class="fu">lm</span>(temp <span class="sc">~</span> north_huai<span class="sc">*</span>dist_huai, <span class="fu">filter</span>(river_data, dist_huai <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai <span class="sc">&lt;=</span> <span class="dv">5</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% Confidence intervals</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ci_reg_temp <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(reg_temp)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Regress distance from precipitation on distance from Huai</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>reg_prcp <span class="ot">&lt;-</span> <span class="fu">lm</span>(prcp <span class="sc">~</span> north_huai<span class="sc">*</span>dist_huai, <span class="fu">filter</span>(river_data, dist_huai <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai <span class="sc">&lt;=</span> <span class="dv">5</span>))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% Confidence intervals</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>ci_reg_prcp <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(reg_prcp)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Regress distance from wind speed on distance from Huai</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>reg_wspd <span class="ot">&lt;-</span> <span class="fu">lm</span>(wspd <span class="sc">~</span> north_huai<span class="sc">*</span>dist_huai, <span class="fu">filter</span>(river_data, dist_huai <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai <span class="sc">&lt;=</span> <span class="dv">5</span>))</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% Confidence intervals</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>ci_reg_wspd <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(reg_wspd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Balance Tests
+=====================================================================================
+                                         Dependent variable:                         
+                 --------------------------------------------------------------------
+                       PM10          Temperature     Precipitation      Wind Speed   
+                        (1)              (2)              (3)              (4)       
+-------------------------------------------------------------------------------------
+Treatment            55.143***         -5.815*          -0.265**         -0.627*     
+                 (21.701, 88.585)  (-11.998, 0.367) (-0.524, -0.006) (-1.247, -0.007)
+                                                                                     
+Running Variable       1.266            0.518            -0.034          0.186***    
+                  (-6.016, 8.548)  (-0.829, 1.865)  (-0.090, 0.022)   (0.051, 0.321) 
+                                                                                     
+Interaction           -10.185           -1.474           0.001            -0.136     
+                 (-22.614, 2.243)  (-3.748, 0.800)  (-0.094, 0.096)  (-0.364, 0.092) 
+                                                                                     
+Constant             98.679***        61.338***         0.833***         1.961***    
+                 (80.043, 117.316) (57.865, 64.812)  (0.687, 0.978)   (1.613, 2.310) 
+                                                                                     
+-------------------------------------------------------------------------------------
+Observations            79                79               79               79       
+=====================================================================================
+Note:                                                     *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+</section>
+<section id="identification-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="identification-assumption">Identification Assumption:</h2>
+<p>&nbsp;&nbsp;In a regression discontinuity design, the identification assumption is that the only reason for discrete jumps in the dependent variable around the cutoff are changes in assignment to the cutoff. In other words, observations on either side of the cutoff would have similar outcomes absent of treatment. The identification assumption is violated when individuals have precise control over which side of the cutoff they will be on (i.e., they have control over the assignment variable).</p>
+<p>&nbsp;&nbsp;When graphing bin scatter plots of temperature, precipitation and wind speed as a function of degrees north of the cutoff, we find that there is a jump at the discontinuity but the trends remain constant for the most part. In the case of temperature the jump at the cutoff is small and the (mostly) linear trend is constant - I say mostly because south of a cutoff we see a quadratic trend but this is driven primarily by the bin for the observations closest to the cutoff, so we can assume some noise here. The jump for precipitation is also rather small and the cubic trend in the data is constant. The case of wind speed is more challenging to evaluate graphically as the data looks more spurious than in the earlier cases; south of the cutoff we see a quadratic trend in the data and north of the cutoff we see what could be a cubic trend but with very slight variation. Moreover, the jump, or rather drop, at the discontinuity for wind speed is more pronounced. The tests done with regressions, however, do not find any significant effects associated with treatment on temperature, precipitation and wind speed. These tests show that absent of treatment, similar trends would be followed; therefore the tests indicate that the identification assumption was not violated.</p>
+</section>
+<section id="is-the-issue-of-manipulation-relevant-in-this-case" class="level2">
+<h2 class="anchored" data-anchor-id="is-the-issue-of-manipulation-relevant-in-this-case">Is the issue of manipulation relevant in this case?</h2>
+<p>&nbsp;&nbsp;Manipulation is relevant in studies in which individuals, who are part of the study and whose outcomes are measured, may have control over assignment of treatment (i.e., placement before or after cutoff). If that were the case, then the regression discontinuity design would fail since it would violate the key assumption that individuals on both sides of the cutoff would have similar outcomes. In the case of the Huai river policy study, the assignment of treatment (subsidized heating) is completely arbitrary as it is based on a geographical feature (the river). Additionally, the outcomes we are concerned with here are not those of individuals who could change their location based on the cutoff, but rather pollution levels which are directly dependent on geographical location. Therefore, manipulation is not an issue.</p>
+<section id="what-if-we-were-measureing-indivuals-outcomes" class="level4">
+<h4 class="anchored" data-anchor-id="what-if-we-were-measureing-indivuals-outcomes">What if we were measureing indivuals’ outcomes?</h4>
+<p>&nbsp;&nbsp;If as part of the study we were to actually measure outcomes of individuals, for example life expectancy, then we would have to run a manipulation test to ensure individuals did not have control over assignment north of the cutoff to access the subsidized heating. To do so, plotting the distribution of individuals’ locations with respect to the cutoff. The proper distributions that would pass the manipulation test would vary as they are highly contextual. In our case, the distribution would not be normal but rather it would depend on the geographical location of cities. They key would be to examine if there is a concentration of individuals right north of the Huai river, indicating whether individuals moved specifically top secure the subsidized heating. Unfortunately, we cannot run this test because, as previously mentioned, the demographic data is not public.</p>
+</section>
+</section>
+<section id="placebo-test" class="level2">
+<h2 class="anchored" data-anchor-id="placebo-test">Placebo test:</h2>
+<section id="why-is-a-placebo-test-necessary" class="level4">
+<h4 class="anchored" data-anchor-id="why-is-a-placebo-test-necessary">Why is a placebo test necessary?</h4>
+<p>&nbsp;&nbsp;A discontinuity at the cutoff boundary, is indicative of a potential effect stemming from the Huai River policy. However, if we find that discontinuities are present in other parts of the data, then the conclusions of the main cutoff are undermined. A placebo test can be used to examine these possibilities; specifically in our case, the placebo test examines whether discontinuities are found in other regions China as a result of the Huai River policy.</p>
+</section>
+<section id="running-the-placebo-test" class="level4">
+<h4 class="anchored" data-anchor-id="running-the-placebo-test">Running the placebo test:</h4>
+<p>&nbsp;&nbsp;The placebo test can be ran by plotting the estimated discontinuities in pollution levels of PM10 at one degree latitude intervals north and south. Th essence of the test is to</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new variable, `placebo_dist_huai`, that where observations are shifted 1 degree north</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_1 =</span> dist_huai <span class="sc">+</span> <span class="dv">1</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_1 =</span> <span class="fu">ifelse</span>(dist_huai_1 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_2 =</span> dist_huai <span class="sc">+</span> <span class="dv">2</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_2 =</span> <span class="fu">ifelse</span>(dist_huai_2 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_3 =</span> dist_huai <span class="sc">+</span> <span class="dv">3</span>, </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_3 =</span> <span class="fu">ifelse</span>(dist_huai_3 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_4 =</span> dist_huai <span class="sc">+</span> <span class="dv">4</span>, </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_4 =</span> <span class="fu">ifelse</span>(dist_huai_4 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_5 =</span> dist_huai <span class="sc">+</span> <span class="dv">5</span>, </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_5 =</span> <span class="fu">ifelse</span>(dist_huai_5 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_neg1 =</span> dist_huai <span class="sc">-</span> <span class="dv">1</span>, </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_neg1 =</span> <span class="fu">ifelse</span>(dist_huai_neg1 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_neg2 =</span> dist_huai <span class="sc">-</span> <span class="dv">2</span>, </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_neg2 =</span> <span class="fu">ifelse</span>(dist_huai_neg2 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_neg3 =</span> dist_huai <span class="sc">-</span> <span class="dv">3</span>, </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_neg3 =</span> <span class="fu">ifelse</span>(dist_huai_neg3 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_neg4 =</span> dist_huai <span class="sc">-</span> <span class="dv">4</span>, </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_neg4 =</span> <span class="fu">ifelse</span>(dist_huai_neg4 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>river_data <span class="sc">%&lt;&gt;%</span> <span class="fu">mutate</span>(<span class="at">dist_huai_neg5 =</span> dist_huai <span class="sc">-</span> <span class="dv">5</span>, </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                       <span class="at">placebo_indic_neg5 =</span> <span class="fu">ifelse</span>(dist_huai_neg5 <span class="sc">&gt;=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run reg of PM[10] on north_huai and new placebo distance variable (placebo_dist_huai)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>placebo_reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_1<span class="sc">*</span>placebo_indic_1, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_1 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_1 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>placebo_reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_2<span class="sc">*</span>placebo_indic_2, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_2 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_2 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>placebo_reg3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_3<span class="sc">*</span>placebo_indic_3, </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_3 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_3 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>placebo_reg4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_4<span class="sc">*</span>placebo_indic_4,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_4 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_4 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>placebo_reg5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_5<span class="sc">*</span>placebo_indic_5, </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_5 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_5 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>placebo_reg_neg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_neg1<span class="sc">*</span>placebo_indic_neg1, </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_neg1 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_neg1 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>placebo_reg_neg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_neg2<span class="sc">*</span>placebo_indic_neg2, </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_neg2 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_neg2 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>placebo_reg_neg3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_neg3<span class="sc">*</span>placebo_indic_neg3, </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_neg3 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_neg3 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>placebo_reg_neg4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_neg4<span class="sc">*</span>placebo_indic_neg4, </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_neg4 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_neg4 <span class="sc">&lt;=</span><span class="dv">5</span>))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>placebo_reg_neg5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pm10 <span class="sc">~</span> dist_huai_neg5<span class="sc">*</span>placebo_indic_neg5, </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">filter</span>(river_data, dist_huai_neg5 <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">&amp;</span> dist_huai_neg5 <span class="sc">&lt;=</span><span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find confidence intervals</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ci_0 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(reg_pm10)[<span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ci_1 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg1)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>ci_2 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg2)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ci_3 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg3)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ci_4 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg4)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>ci_5 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg5)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>ci_neg1 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg_neg1)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>ci_neg2 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg_neg2)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>ci_neg3 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg_neg3)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>ci_neg4 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg_neg4)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>ci_neg5 <span class="ot">&lt;-</span> <span class="fu">confint.lm</span>(placebo_reg_neg5)[<span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Bind confidence intervals</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>conf_ints <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(ci_neg5, ci_neg4, ci_neg3, </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                       ci_neg2, ci_neg1, ci_0, ci_1,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                       ci_2, ci_3, ci_4, ci_5)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidy-s</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>estim_1 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg1)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>estim_2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg2)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>estim_3 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg3)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>estim_4 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg4)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>estim_5 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg5)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>estim_0 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(reg_pm10)[<span class="dv">2</span>, <span class="dv">2</span>] <span class="co">#Index 2nd row, not 3rd, bc reg has variables in != order</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>estim_neg1 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg_neg1)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>estim_neg2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg_neg2)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>estim_neg3 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg_neg3)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>estim_neg4 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg_neg4)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>estim_neg5 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(placebo_reg_neg5)[<span class="dv">3</span>, <span class="dv">2</span>]</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Bind estimates</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>estimates <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(estim_neg5, estim_neg4, estim_neg3, </span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                       estim_neg2, estim_neg1, estim_0, estim_1, </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>                       estim_2, estim_3, estim_4, estim_5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create vector for row names</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>degs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"-5"</span>, <span class="st">"-4"</span>, <span class="st">"-3"</span>, <span class="st">"-2"</span>, <span class="st">"-1"</span>, <span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataframes by binding row names, estimates vector and confidence interval vectors</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>placebo_estimates <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(degs, estimates, conf_ints)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Change column names</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(placebo_estimates) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"degs_shifted"</span>, <span class="st">"estimates"</span>, <span class="st">"lower"</span>, <span class="st">"upper"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graph</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(placebo_estimates) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> degs_shifted, <span class="at">y =</span> estimates), <span class="at">color =</span> <span class="st">"tomato3"</span>, <span class="at">shape =</span> <span class="dv">21</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper, <span class="at">y =</span> estimates, <span class="at">x =</span> degs_shifted,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> <span class="st">"tomato3"</span>)) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Placebo Tests for Discontinuities"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Degrees from Cutoff"</span>, <span class="at">y =</span> <span class="st">"Estimate of PM10 Change (ug/m^3))"</span>) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="huai_rd_files/figure-html/plot-placebo-disconts-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>&nbsp;&nbsp;The only significant coefficient estimate of a discontinuity is that of the actual cutoff (the Huai river), with an estimate slightly above 50 without a possible effect of zero within the confidence intervals. Thus, the results show that no other region has statistically significant discontinuous changes in PM10.</p>
+</section>
+</section>
+<section id="source" class="level2">
+<h2 class="anchored" data-anchor-id="source">Source</h2>
+<p><a href="https://www.pnas.org/doi/abs/10.1073/pnas.1616784114">Ebenstein, A., M. Fan, M. Greenstone, G. He, and M. Zhou. 2017. New evidence on the impact of sustained exposure to air pollution on life expectancy from China’s Huai River Policy. Proceedings of the National Academy of Sciences of the USA 114 (39): 10384–89</a></p>
+
+</section>
+</main>
+<!-- /main column -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>
